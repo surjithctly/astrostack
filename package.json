@@ -1,0 +1,27 @@
+{
+  "name": "web3templates",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel --if-present dev",
+    "dev:web": "pnpm --filter ./apps/web dev",
+    "dev:admin": "pnpm --filter ./apps/admin dev",
+    "build": "pnpm -r --if-present build",
+    "build:web": "pnpm --filter ./apps/web build",
+    "build:admin": "pnpm --filter ./apps/admin build",
+    "lint": "pnpm -r --if-present lint",
+    "format": "pnpm -r --if-present format",
+    "typecheck": "pnpm -r --if-present typecheck"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4"
+  }
+}

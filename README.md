@@ -1,0 +1,42 @@
+# Tailwind Stash Monorepo Starter
+
+Dev-first pnpm workspace for an Astro frontend and Payload backend.
+
+## Structure
+
+- `apps/web/` - Astro app
+- `apps/admin/` - Payload app
+- `packages/` - shared libraries (optional)
+
+## Setup
+
+1. Install dependencies:
+   `pnpm install`
+3. Run apps:
+   `pnpm dev`
+
+## Scripts
+
+- `pnpm dev` - run all app dev servers
+- `pnpm dev:web` - run Astro only
+- `pnpm dev:admin` - run Payload only
+- `pnpm build` - build all apps
+- `pnpm lint` / `pnpm typecheck` / `pnpm format` - if present
+
+## Environment
+
+Copy env vars from `env.example` and rename to `.env` as needed.
+
+## Tooling
+
+- Shared configs: `tsconfig.base.json`, `.eslintrc.cjs`, `.prettierrc`
+- CI workflow: `.github/workflows/ci.yml`
+- Docker is intended for deployment (Coolify). Local dev uses `pnpm dev`.
+
+## Coolify
+
+You can point Coolify to each app directory and use the example Dockerfiles as a
+starting point:
+
+- `apps/web/Dockerfile.example`
+- `apps/admin/Dockerfile.example`

@@ -1,0 +1,37 @@
+services:
+  web:
+    profiles:
+      - full
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "4321:80"
+
+  admin:
+    profiles:
+      - full
+    build:
+      context: ./apps/admin
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: payload
+      POSTGRES_PASSWORD: payload
+      POSTGRES_DB: payload
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
