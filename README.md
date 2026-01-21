@@ -1,18 +1,18 @@
-# Tailwind Stash Monorepo Starter
+# AstroStack Starter
 
-Dev-first pnpm workspace for an Astro frontend and Payload backend.
+AstroStack is a starter template built with Astro, Payload CMS, and Tailwind CSS.
 
 ## Structure
 
 - `apps/web/` - Astro app
-- `apps/admin/` - Payload app
+- `apps/admin/` - Payload CMS app
 - `packages/` - shared libraries (optional)
 
 ## Setup
 
 1. Install dependencies:
    `pnpm install`
-3. Run apps:
+2. Run apps:
    `pnpm dev`
 
 ## Scripts

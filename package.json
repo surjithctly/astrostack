@@ -1,5 +1,5 @@
 {
-  "name": "web3templates",
+  "name": "astrostack",
   "private": true,
   "scripts": {
     "dev": "pnpm -r --parallel --if-present dev",
