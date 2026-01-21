@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.12"
+    "@astrojs/node": "^9.5.2",
+    "astro": "^5.16.12",
+    "dotenv": "16.4.7"
   }
 }

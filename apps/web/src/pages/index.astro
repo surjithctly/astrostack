@@ -1,11 +1,33 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { applyCacheControl } from '../config/cache';
+import { fetchPosts } from '../lib/payload';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const posts = await fetchPosts();
+
+applyCacheControl(Astro.response.headers, {
+  sMaxAge: 600,
+  staleWhileRevalidate: 86400,
+});
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <h1>Astro + Payload CMS</h1>
+    <p>Latest posts from Payload:</p>
+
+    {
+      posts.length ? (
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <a href={`/posts/${post.slug}`}>{post.title}</a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No posts yet. Create one in Payload to see it here.</p>
+      )
+    }
+  </main>
 </Layout>

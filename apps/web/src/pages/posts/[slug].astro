@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { applyCacheControl } from '../../config/cache';
+import { fetchPostBySlug } from '../../lib/payload';
+
+const { slug } = Astro.params;
+const post = slug ? await fetchPostBySlug(slug) : null;
+
+if (!post) {
+  return Astro.redirect('/', 302);
+}
+
+applyCacheControl(Astro.response.headers, {
+  sMaxAge: 600,
+  staleWhileRevalidate: 86400,
+});
+---
+
+<Layout>
+  <main>
+    <a href="/">← Back</a>
+    <h1>{post.title}</h1>
+    <p>{post.content}</p>
+  </main>
+</Layout>

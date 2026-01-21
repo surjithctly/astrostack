@@ -41,6 +41,12 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
+## Payload CMS
+
+This app fetches posts from the Payload REST API. Add `PAYLOAD_PUBLIC_SERVER_URL`
+to `apps/web/.env` (for example `http://localhost:3001`), then create posts in
+the `posts` collection to see them render on the homepage.
+
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
