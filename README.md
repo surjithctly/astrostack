@@ -33,10 +33,16 @@ Copy env vars from `env.example` and rename to `.env` as needed.
 - CI workflow: `.github/workflows/ci.yml`
 - Docker is intended for deployment (Coolify). Local dev uses `pnpm dev`.
 
-## Coolify
+## Coolify (Docker Compose)
 
-You can point Coolify to each app directory and use the example Dockerfiles as a
-starting point:
+Use the included `docker-compose.yml` as a custom service in Coolify.
 
-- `apps/web/Dockerfile.example`
-- `apps/admin/Dockerfile.example`
+1. Create a **Docker Compose** (custom service) app in Coolify.
+2. Point it to the repo root and select `docker-compose.yml`.
+3. Set the required environment variables:
+   - `DATABASE_URL`
+   - `PAYLOAD_SECRET`
+   - `PAYLOAD_PUBLIC_SERVER_URL`
+4. The compose file includes a Postgres service. If you prefer a managed DB,
+   remove the `postgres` service and set `DATABASE_URL` to your managed
+   connection string.
