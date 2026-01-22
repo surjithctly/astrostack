@@ -8,7 +8,7 @@ export type Post = {
   content: string;
 };
 
-const payloadBaseUrl = import.meta.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3000';
+const payloadBaseUrl = import.meta.env.PAYLOAD_PUBLIC_SERVER_URL ?? 'http://localhost:3001';
 
 export async function fetchPosts(): Promise<Post[]> {
   const res = await fetch(`${payloadBaseUrl}/api/posts`);
